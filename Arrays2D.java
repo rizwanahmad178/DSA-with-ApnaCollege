@@ -20,7 +20,26 @@ public class Arrays2D {
                         {9,10,11,12},
                         {13,14,15,16}};
         //printSpiralMatrix(matrix);
-        diagonalSum(matrix);
+        
+        //diagonalSum(matrix);
+
+        int key = 810;
+        searchInSortedMatrix(matrix,key);
+    }
+
+    public static void searchInSortedMatrix(int [][]matrix, int key){
+        int row = 0, col = matrix[0].length-1;
+        while(row<=matrix.length-1 && col>=0){
+            if(matrix[row][col] == key){
+                System.out.print("Key found at index ("+row+", "+col+")");
+                return;
+            }else if(matrix[row][col] > key){
+                col--;
+            }else{
+                row++;
+            }
+        }
+        System.out.println("Key not found");
     }
 
     public static void diagonalSum(int[][] matrix){
