@@ -12,13 +12,81 @@ public class StringClass {
         // }else{
         //     System.out.println("Both Strings are not same");
         // }
-        String str = "racecar";
-        if(isPalindrome(str)){
-            System.out.println("Given String is Palindrome!");
-        }else{
-            System.out.println("Given String is not Palindrome");
-        }
+
+        //Palindrome
+        // String str = "racecar";
+        // if(isPalindrome(str)){
+        //     System.out.println("Given String is Palindrome!");
+        // }else{
+        //     System.out.println("Given String is not Palindrome");
+        // }
+
+        //Shortest Path
+        // String path = "WNEENESENNN";
+        // System.out.print("Shortest Path : "+getShortestPath(path));
+
+        //Largest String
+        // String fruits[] = {"Apple","Orange","Grapes"};
+        // System.out.print("Largest String of the given String Array : "+largestString(fruits));
+
+        //ConvertToUppercase
+        String str = "hi, i am rizwan!";
+        System.out.print("After converting to Uppercase : "+convertToUpperCase(str));
     }
+
+    public static String convertToUpperCase(String str){
+        StringBuilder sb = new StringBuilder("");
+        char ch = Character.toUpperCase(str.charAt(0));
+        sb.append(ch);
+        for(int i=1;i<str.length();i++){
+            if(str.charAt(i)==' ' && i<str.length()-1){
+                sb.append(str.charAt(i));
+                i++;
+                sb.append(Character.toUpperCase(str.charAt(i)));
+
+            }else{
+                sb.append(str.charAt(i));
+            }
+        }
+        return sb.toString();
+    }
+
+    public static String largestString(String[] fruits){
+        String largest = "";
+        largest = fruits[0];
+        //str1.compareTo(str2)
+        //if result is = 0 then str1=str2
+        //if result is > 0 then str1>str2
+        //if result is < 0 then str1<str2
+        for(int i=1;i<fruits.length;i++){
+            if(largest.compareTo(fruits[i])<0){
+                largest = fruits[i];
+            }
+        }
+        return largest;
+    }
+
+    public static double getShortestPath(String path){
+        double sPath = 0;
+        double x = 0, y = 0;
+        for(int i=0;i<path.length();i++){
+            char ch = path.charAt(i);
+            if(ch=='N'){
+                y++;
+            }else if(ch=='S'){
+                y--;
+            }else if(ch=='E'){
+                x++;
+            }else{
+                x--;
+            }
+        }
+        double x2 = x*x;
+        double y2 = y*y;
+        sPath = Math.sqrt(x2+y2); 
+        return sPath;
+    }
+
     public static boolean isPalindrome(String str){
         int n = str.length();
         for(int i=0;i<n;i++){
