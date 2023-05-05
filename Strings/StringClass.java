@@ -30,8 +30,44 @@ public class StringClass {
         // System.out.print("Largest String of the given String Array : "+largestString(fruits));
 
         //ConvertToUppercase
-        String str = "hi, i am rizwan!";
-        System.out.print("After converting to Uppercase : "+convertToUpperCase(str));
+        // String str = "hi, i am rizwan!";
+        // System.out.print("After converting to Uppercase : "+convertToUpperCase(str));
+
+        //String Compression
+        String str = "aaabbbbbcdddd";
+        System.out.print("Compressed String is : "+compressedString(str));
+    }
+
+    public static String compressedString(String str){
+        //With String
+        // String newStr = "";
+        // for(int i=0;i<str.length();i++){
+        //     Integer count = 0;
+        //     while(i<(str.length()-1) && str.charAt(i)==str.charAt(i+1)){
+        //         count++;
+        //         i++;
+        //     }
+        //     newStr += str.charAt(i);
+        //     if(count>1){
+        //         newStr += count.toString();
+        //     }
+        // }
+        // return newStr;
+
+        //With StringBuilder
+        StringBuilder sb = new StringBuilder("");
+        for(int i=0;i<str.length();i++){
+            int count = 0;
+            while(i<(str.length()-1) && str.charAt(i)==str.charAt(i+1)){
+                count++;
+                i++;
+            }
+            sb.append(str.charAt(i));
+            if(count>1){
+                sb.append(count);
+            }
+        }
+        return sb.toString();
     }
 
     public static String convertToUpperCase(String str){
