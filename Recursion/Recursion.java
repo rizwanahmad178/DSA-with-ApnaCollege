@@ -14,7 +14,32 @@ class Recursion{
         //System.out.println("Nth Fibonacci term is : "+fib(n));
         //System.out.println("Given Array is Sorted ? : "+isSorted(arr,0));
         //System.out.println(firstOccurance(arr, 5, 0));
-        System.out.println(lastOccurance(arr, 10, 0));
+        //System.out.println(lastOccurance(arr, 10, 0));
+        System.out.println("Print x^n where x = 2 & n = 10 : "+power(2,5));
+        System.out.println("Print x^n where x = 2 & n = 10(Optimized) : "+optimizedPower(2,5));
+    }
+
+    public static int optimizedPower(int a, int n){
+        if(n==0){
+            return 1;
+        }
+        int halfPower = optimizedPower(a, n/2);
+        int halfPS = halfPower * halfPower;
+        //if n is odd
+        if(n%2 != 0 ){
+            halfPS = halfPS * a;
+        }
+        return halfPS;
+    }
+
+    public static int power(int x, int n){
+        //base case
+        if(n==0){
+            return 1;
+        }
+        int xnm1 = power(x, n-1);
+        int xn = x * xnm1;
+        return xn;
     }
 
     public static int lastOccurance(int[] arr, int key, int i){
