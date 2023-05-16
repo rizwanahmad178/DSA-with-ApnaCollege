@@ -15,8 +15,71 @@ class Recursion{
         //System.out.println("Given Array is Sorted ? : "+isSorted(arr,0));
         //System.out.println(firstOccurance(arr, 5, 0));
         //System.out.println(lastOccurance(arr, 10, 0));
-        System.out.println("Print x^n where x = 2 & n = 10 : "+power(2,5));
-        System.out.println("Print x^n where x = 2 & n = 10(Optimized) : "+optimizedPower(2,5));
+        //System.out.println("Print x^n where x = 2 & n = 10 : "+power(2,5));
+        //System.out.println("Print x^n where x = 2 & n = 10(Optimized) : "+optimizedPower(2,5));
+        //System.out.println("No. of ways for the Tiling Problem is : "+countWays(3));
+        //String str = "appnnaaccollege";
+        //removeDuplicate(str,0,new StringBuilder(""), new boolean[26]);
+        //System.out.println("Number of ways of pairing friends : "+friendsPairing(3));
+        System.out.println("All Binary Strings : ");
+        printBinaryString(3, 0, "");
+    }
+
+    public static void printBinaryString(int n, int lastPlace, String str){
+        //base case
+        if(n==0){
+            System.out.println(str);
+            return;
+        }
+        if(lastPlace==0){
+            printBinaryString(n-1, 0, str+"0");
+            printBinaryString(n-1, 1, str+"1");
+        }else{
+            printBinaryString(n-1, 0, str+"0");
+        }
+    }
+
+    public static int friendsPairing(int n){
+        //base case
+        if(n==1 || n==2){
+            return n;
+        }
+        //Single Choice
+        int fnm1 = friendsPairing(n-1);
+        //Pair Choice
+        int fnm2 = friendsPairing(n-2);
+        int pairCount = fnm2 * (n-1);
+        return (fnm1 + pairCount);
+
+    }
+
+    public static void removeDuplicate(String str, int idx, StringBuilder newStr, boolean[] map){
+        //base case
+        if(idx == str.length()){
+            System.out.println(newStr);
+            return;
+        }
+        //find char
+        char currChar = str.charAt(idx);
+        if(map[currChar-'a']==true){
+            removeDuplicate(str, idx+1, newStr, map);
+        }else{
+            map[currChar-'a'] = true;
+            removeDuplicate(str, idx+1, newStr.append(currChar), map);
+        }
+    }
+
+    public static int countWays(int n){
+        //base case
+        if(n==0 || n==1){
+            return 1;
+        }
+        //vertical tiling
+        int fnm1 = countWays(n-1);
+        //horizontal tiling
+        int fnm2 = countWays(n-2);
+        int totalWays = fnm1 + fnm2;
+        return totalWays;
     }
 
     public static int optimizedPower(int a, int n){
