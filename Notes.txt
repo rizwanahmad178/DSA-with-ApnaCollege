@@ -1,0 +1,9 @@
+Pending Assignments :-
+
+1. Bit Manipulation
+
+2. OOPs Concept
+
+3. Recursion
+
+4. Divide & Conquer
