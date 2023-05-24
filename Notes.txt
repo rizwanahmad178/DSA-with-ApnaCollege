@@ -7,3 +7,6 @@ Pending Assignments :-
 3. Recursion
 
 4. Divide & Conquer
+
+5. Time Complexity
+
