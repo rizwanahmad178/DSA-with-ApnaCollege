@@ -11,3 +11,5 @@ Pending Assignments :-
 5. Time Complexity
 
 6. BackTracking
+
+7. ArrayList
