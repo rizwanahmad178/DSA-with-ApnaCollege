@@ -19,20 +19,98 @@ public class LinkedListClass {
     public static void main(String[] args) {
         LinkedListClass list = new LinkedListClass();
         // list.printList();
-        list.addFirst(2);
-        list.addFirst(1);
-        list.addLast(4);
-        list.addLast(5);
+        // list.addFirst(2);
+        // list.addFirst(1);
+        // list.addLast(4);
+        // list.addLast(5);
         // list.printList();
-        list.add(2,3);
+        // list.add(2,3);
         // list.printList();
         // //System.out.println("Size of the Linked List : "+size);
         // list.removeFirst();
         // list.printList();
         // list.removeLast();
-        list.printList();
+        // list.printList();
         // System.out.println(list.itrSearch(31));
-        System.out.println(list.recSearch(2));
+        // System.out.println(list.recSearch(2));
+        // list.reverse();
+        // list.printList();
+        // list.deleteNthFromEnd(3);
+        // list.printList();
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+        list.addLast(1);
+        System.out.println("List is Palindrome (True/False): "+list.checkPalindrome());
+    }
+
+    public boolean checkPalindrome(){
+        //base case
+        if(head==null || head.next==null){
+            return true;
+        }
+        //find mid Node
+        Node midNode = findNode(head);
+        Node prev = null;
+        Node curr = midNode;
+        Node next;
+        while(curr!=null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        Node right = prev;
+        Node left = head;
+        while(right!=null){
+            if(left.data != right.data){
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+        return true;
+    }
+
+    public Node findNode(Node head){
+        Node slow = head;
+        Node fast = head;
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+    public void deleteNthFromEnd(int n){
+        int sz = 0;
+        Node temp = head;
+        while(temp != null){
+            temp = temp.next;
+            sz++;
+        }
+        int i = 1;
+        int idx = sz-n;
+        Node prev = head;
+        while(i<idx){
+            prev = prev.next;
+            i++;
+        }
+        prev.next = prev.next.next;
+        return;
+    }
+
+    public void reverse(){
+        Node prev = null;
+        Node curr = head;
+        Node next;
+        while(curr!=null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next; 
+        }
+        head = prev;
     }
 
     public int recSearch(int key){
