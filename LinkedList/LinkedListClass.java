@@ -18,19 +18,53 @@ public class LinkedListClass {
 
     public static void main(String[] args) {
         LinkedListClass list = new LinkedListClass();
-        list.printList();
+        // list.printList();
         list.addFirst(2);
         list.addFirst(1);
         list.addLast(4);
         list.addLast(5);
-        list.printList();
+        // list.printList();
         list.add(2,3);
+        // list.printList();
+        // //System.out.println("Size of the Linked List : "+size);
+        // list.removeFirst();
+        // list.printList();
+        // list.removeLast();
         list.printList();
-        //System.out.println("Size of the Linked List : "+size);
-        list.removeFirst();
-        list.printList();
-        list.removeLast();
-        list.printList();
+        // System.out.println(list.itrSearch(31));
+        System.out.println(list.recSearch(2));
+    }
+
+    public int recSearch(int key){
+        return helper(head, key);
+    }
+
+    public int helper(Node head, int key){
+        if(head == null){
+            return -1;
+        }
+        if(head.data == key){
+            return 0;
+        }
+        int idx = helper(head.next, key);
+        if(idx == -1){
+            return -1;
+        }
+
+        return idx + 1;
+    }
+
+    public int itrSearch(int key){
+        Node temp = head;
+        int i = 0;
+        while(temp!=null){
+            if(temp.data == key){
+                return i;
+            }
+            i++;
+            temp = temp.next;
+        }
+        return -1;
     }
 
     public void addFirst(int data){
