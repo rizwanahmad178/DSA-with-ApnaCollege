@@ -1,4 +1,6 @@
-package LinkedList;
+package LinkedListFile;
+
+import java.util.LinkedList;
 
 public class LLCycle {
     public static class Node{
@@ -20,7 +22,8 @@ public class LLCycle {
         head.next.next.next = new Node(4);
         head.next.next.next.next = new Node(5);
         head.next.next.next.next.next = temp;
-        
+
+
         //1->2->3->4->5->3
         System.out.println("Cycle Present(True/False) : "+isCycle());
         removeCycle();
