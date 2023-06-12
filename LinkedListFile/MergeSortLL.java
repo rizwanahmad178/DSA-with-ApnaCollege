@@ -1,6 +1,8 @@
 package LinkedListFile;
 
 import java.util.LinkedList;
+
+// import java.util.LinkedList;
 public class MergeSortLL {
     public static class Node{
         int data;
@@ -15,7 +17,7 @@ public class MergeSortLL {
     public static int size;
 
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList<>();
+        LinkedList ll = new LinkedList();
         ll.addFirst(1);
         ll.addFirst(2);
         ll.addFirst(3);
@@ -26,7 +28,6 @@ public class MergeSortLL {
         ll.head = ll.MergeSortLL(ll.head);
         ll.print();
     }
-
     public Node mergeSort(Node head){
         if(head == null || head.next == null){
             return head;
