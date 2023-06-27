@@ -13,3 +13,5 @@ Pending Assignments :-
 6. BackTracking
 
 7. ArrayList
+
+8. Linked List
