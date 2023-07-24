@@ -15,3 +15,5 @@ Pending Assignments :-
 7. ArrayList
 
 8. Linked List
+
+9. Stacks
