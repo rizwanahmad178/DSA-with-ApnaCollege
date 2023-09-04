@@ -1,5 +1,7 @@
 package BinarySearchTrees;
 
+import java.util.ArrayList;
+
 public class BuildBST {
     static class Node{
         int data;
@@ -83,6 +85,41 @@ public class BuildBST {
         }
     }
 
+    public static void printRoot2Leaf(Node root, ArrayList<Integer> path ){
+        if(root==null){
+            return;
+        }
+        path.add(root.data);
+        if(root.left == null && root.right == null){
+            printPath(path);
+        }
+
+        printRoot2Leaf(root.left, path);
+        printRoot2Leaf(root.right, path);
+        
+        path.remove(path.size()-1);
+    }
+
+    public static void printPath(ArrayList<Integer> path){
+        for(int i=0;i<path.size();i++){
+            System.out.print(path.get(i)+"->");
+        }
+        System.out.println("Null");
+    }
+
+    public static boolean isValid(Node root, Node min, Node max){
+        if(root==null){
+            return true;
+        }
+        if(min!=null && root.data <= min.data){
+            return false;
+        }else if(max!=null && root.data >= max.data){
+            return false;
+        }
+
+        return isValid(root.left, min, root) && isValid(root.right, root, max);
+    }
+
     public static void inorder(Node root){
         if(root==null){
             return ;
@@ -102,17 +139,24 @@ public class BuildBST {
             root = insert(root, values[i]);
         }    
         inorder(root);
-        System.out.println("\nSearch Method");
-        if(search(root, 6)){
-            System.out.println("Found");
+        // System.out.println("\nSearch Method");
+        // if(search(root, 6)){
+        //     System.out.println("Found");
+        // }else{
+        //     System.out.println("Not Found");
+        // }
+        // System.out.println("\nDelete Method");
+        // root = delete(root,1);
+        // System.out.println();
+        // inorder(root);
+        // System.out.println("\nPrint Range Method");
+        // printRange(root, 5, 12);
+        // System.out.println("\nRoot to Leaf Path Method");
+        // printRoot2Leaf(root, new ArrayList<>());
+        if(isValid(root, null, null)){
+            System.out.println("Valid BST");
         }else{
-            System.out.println("Not Found");
+            System.out.println("Not Valid BST");
         }
-        System.out.println("\nDelete Method");
-        root = delete(root,1);
-        System.out.println();
-        inorder(root);
-        System.out.println("\nPrint Range Method");
-        printRange(root, 5, 12);
     }
 }
