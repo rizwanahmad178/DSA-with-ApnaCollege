@@ -17,3 +17,13 @@ Pending Assignments :-
 8. Linked List
 
 9. Stacks
+
+10. Queue
+
+11. Greedy Algo
+
+12. Binary Trees Part 1
+
+13. Binary Trees Part 2
+
+14. Binary Trees Part 3
