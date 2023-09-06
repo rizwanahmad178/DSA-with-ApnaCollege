@@ -27,3 +27,8 @@ Pending Assignments :-
 13. Binary Trees Part 2
 
 14. Binary Trees Part 3
+
+15. Binary Search Trees Part 1
+
+16. Binary Search Tress Part 2
+
