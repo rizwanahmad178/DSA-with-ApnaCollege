@@ -57,7 +57,6 @@ public class BiPartiteGraph {
                         }else if(col[e.dest] == col[curr]){
                             return false;
                         }
-
                     }
                 }
             }
