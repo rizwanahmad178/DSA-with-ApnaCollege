@@ -2,7 +2,6 @@ package DynamicPro;
 
 import java.util.Arrays;
 import java.util.HashSet;
-
 public class LongestIncreasingSubsequence {
     public static int lcs(int[] arr1, int[] arr2){
         int n = arr1.length;
@@ -15,7 +14,6 @@ public class LongestIncreasingSubsequence {
                 }
             }
         }
-
         for(int i=1;i<n+1;i++){
             for(int j=1;j<m+1;j++){
                 if(arr1[i-1]==arr2[j-1]){
@@ -28,7 +26,6 @@ public class LongestIncreasingSubsequence {
             }
         }
         return dp[n][m];
-
     }
     public static int lis(int[] arr){
         HashSet<Integer> set = new HashSet<>();
