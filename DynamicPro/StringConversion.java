@@ -1,6 +1,17 @@
 package DynamicPro;
 
 public class StringConversion {
+    public static void main(String[] args) {
+        String str1 = "pear";
+        String str2 = "sea";
+        System.out.println("No of operation to convert the String : "+stringConversion(str1,str2));
+    }
+    public static int stringConversion(String str1, String str2){
+        int len1 = str1.length();
+        int len2 = str2.length();
+        int lcsL = lcs(str1,str2);
+        return (len1-lcsL) + (len2-lcsL);
+    }
     public static int lcs(String str1, String str2){
         int n = str1.length();
         int m = str2.length();
@@ -24,16 +35,5 @@ public class StringConversion {
             }
         }
         return dp[n][m];
-    }
-    public static int stringConversion(String str1, String str2){
-        int len1 = str1.length();
-        int len2 = str2.length();
-        int lcsL = lcs(str1,str2);
-        return (len1-lcsL) + (len2-lcsL);
-    }
-    public static void main(String[] args) {
-        String str1 = "pear";
-        String str2 = "sea";
-        System.out.println("No of operation to convert the String : "+stringConversion(str1,str2));
     }
 }
