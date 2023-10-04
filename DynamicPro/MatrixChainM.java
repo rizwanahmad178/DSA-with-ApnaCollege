@@ -36,7 +36,7 @@ public class MatrixChainM {
             minCost = Math.min(minCost, finalCost);
         }
      
-        return minCost;
+        return dp[i][j] = minCost;
     }
     public static int mcmTab(int[] arr){
         int n = arr.length;
