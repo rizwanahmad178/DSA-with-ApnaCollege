@@ -9,7 +9,6 @@ public class MinPartition {
         }
         int W = sum/2;
         int dp[][] = new int[n+1][W+1];
-
         //bottom up
         for(int i=1;i<n+1;i++){
             for(int j=1;j<W+1;j++){
